@@ -8,10 +8,12 @@ Boolean 类型的未传递 prop 将被转换为 false。这可以通过为它设
 
 如果声明了 default 值，那么在 prop 的值被解析为 **undefined** 时，无论 prop 是未被传递还是显式指明的 undefined，都会改为 default 值。
 
+---
+
 
 # 触发与监听事件
-
 我有点明白了
+```
   父组件 {
     const 回调 = () => {}
     @事件="回调"
@@ -21,3 +23,4 @@ Boolean 类型的未传递 prop 将被转换为 false。这可以通过为它设
     defineEmits(['事件'])
     $emit('事件')
   }
+```

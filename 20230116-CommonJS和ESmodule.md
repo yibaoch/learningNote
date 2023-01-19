@@ -8,28 +8,30 @@ D ，指 Description ，网站的描述，即网页的 <meta name="description" 
 
 这三个要素标签都位于 HTML 文件的 <head /> 标签内。
 
+---
 
 
 ## CommonJS 
 
 默认导入和导出 
   
-  module.export = 
+  `module.export = `
   
-  require()
+ ` require()`
  
 命名导出和导入
-
+```
   module.export = {
     foo, bar
   }
-  
-  const { foo, bar } = require('./module.cjs')
+  ```
+  `const { foo, bar } = require('./module.cjs')`
   
 导入时重命名
  
-   const { foo: fooB } = require('./module.cjs')
+   `const { foo: fooB } = require('./module.cjs')`
    
+---
  
 ## ES Module
 
@@ -42,7 +44,7 @@ ESM 使用 export default （默认导出）和 export （命名导出）这两�
   import a from './module.cjs'
   
 命名导出和导入
-  
+  ```
   export const a = 'a'
   export const b = 'b'
   
@@ -51,13 +53,15 @@ ESM 使用 export default （默认导出）和 export （命名导出）这两�
   import * as a from './module.mjs'
   a.m()
   a.n()
-  
+  ```
 导入时重命名
+  ```
+  \<old-name> as \<new-name>
 
-  <old-name> as <new-name>
   import { a as ac } from './module.mjs'
+  ```
   
-  
+---
   
 ## CORS
 CORS （全称 Cross-Origin Resource Sharing ）是指跨源资源共享，可以决定浏览器是否需要阻止 JavaScript 获取跨域请求的响应。
@@ -67,3 +71,5 @@ CORS （全称 Cross-Origin Resource Sharing ）是指跨源资源共享，可�
 默认情况下，非同源的请求会被浏览器拦截，最常见的场景是通过 XHR 或者 Fetch 请求 API 接口，需要网页和接口都部署在同一个域名才可以请求成功，否则就会触发跨域限制。
 
 如果网页和接口不在同一个域名，例如网页部署在 https://web.example.com ，接口部署在 https://api.example.com ，此时需要在 https://api.example.com 的 API 服务端程序里，配置 Access-Control-Allow-Origin: * 允许跨域请求（ * 代表允许任意外域访问，也可以指定具体的域名作为白名单列表）。
+---
+
