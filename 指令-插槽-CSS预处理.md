@@ -83,3 +83,79 @@ export default defineComponent({
   <slot name="title"/>
 </template>
 ```
+
+---
+
+## CSS样式和预处理器
+
+### 使用 v-bind 动态修改 style
+
+```typescript
+const cssr = ref<string>('red')
+
+<style scoped>
+.class {
+  color: v-bind(cssr);
+}
+</style>
+```
+
+### 样式表的组件作用域
+
++ Style Scoped
+
+> 在\<style/> 上添加 scoped 属性
+>
+>编译后，虚拟 DOM 都会带有一个 data-v-xxxxx 这样的属性，其中 xxxxx 是一个随机生成的 Hash ，同一个组件的 Hash 是相同并且唯一的
+>
+> 添加 scoped 生成的样式，只作用于当前组件中的元素，并且权重高于全局 CSS ，可以覆盖全局样式
+
++ Style Module
+
+```css
+
+> 在<style/> 上添加 module 属性 ⬇️
+<style module>
+.class {
+  color: red
+}
+<style/>
+```
+
+> 用法⬇️
+
+```html
+<h1 class="$style.class">im yibaochen</h1>
+```
+
+> 发现一个事情 如果用 module 这种, 写的样式都需要自己首档绑定
+>
+> 而且好像不能和 scoped 方式混用
+
++ useCssModule
+
+```typescript
+<template>
+  <div v-html="content"></div>
+</template>
+
+const style = useCssModule()
+
+const content = `
+  <p class="${style.msg}">
+    <span class="${style.text}">Hello World! —— from v-html</span>
+  </p>`
+```
+
+> 还可以给 module 命名 -> module="classes"
+
+```css
+<style module="classes">
+/* ... */
+</style>
+
+```
+
+```typescript
+const style = useCssModule('classes')
+```
