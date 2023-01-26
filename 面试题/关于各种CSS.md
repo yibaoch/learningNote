@@ -1,8 +1,8 @@
 # 记录CSS常用布局以及常用代码
 
-## flex
+## 居中
 
-> 居中
+> flex
 
 ```css
   display: flex;
@@ -10,7 +10,7 @@
   align-items: center;
 ```
 
-## transform
+> transform
 
 ```css
  .main{
@@ -26,3 +26,13 @@
     transform: translate(-50%,-50%);
 }
 ```
+
+## 如何让元素固定在页面底部？有哪些比较好的实践？
+
+我建议使用fixed
+
+## 用css画一个太阳
+
+画出来了 在demo里面
+
+
