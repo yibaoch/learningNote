@@ -5,7 +5,7 @@ const data = [
   },
   {
     name: "Amsterdam", count: 25,
-    content: "<p>Amsterdam is the capital and most populous city of the < b > Netherlands </b>.Its status as the Dutch capital is mandated by the Constitution of the Netherlandsthough it is not the seat of the Dutch government, which is at the Hague. </p> "
+    content: "<p>Amsterdam is the capital and most populous city of the <b> Netherlands </b>.Its status as the Dutch capital is mandated by the Constitution of the Netherlandsthough it is not the seat of the Dutch government, which is at the Hague. </p> "
   },
   {
     name: "Lisbon",
@@ -44,3 +44,30 @@ const data = [
     content: "<p>Paris is the capital and most populous city of < b > France </b >.It is situated on the River Seine, in the north of the country, at the heart of the Île - de - France region. </p > "
   }
 ]
+
+const dataList = document.querySelector('#dataList')
+const show = document.querySelector('#show')
+
+const render = () => {
+  data
+    .sort((v, e) => {
+      if (v.name < e.name)
+        return -1;
+      if (v.name > e.name)
+        return 1;
+      return 0;
+    })
+    .forEach(d => {
+      const city = document.createElement('span')
+      city.className = 'city'
+      city.innerHTML = `
+      <span class="cityName">${d.name}</span>
+      <span>(${d.count})</span>
+      `
+      dataList.appendChild(city)
+      city.onclick = () => show.innerHTML = d.content
+    })
+}
+
+render()
+
