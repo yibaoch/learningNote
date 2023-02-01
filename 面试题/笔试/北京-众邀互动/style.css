@@ -20,7 +20,7 @@
   background-color: pink;
   border: 250px solid;
   border-color: red white red white;
-  animation: 6s infinite linear rotate;
+  animation: 30s infinite linear rotate;
 }
 
 #app {
