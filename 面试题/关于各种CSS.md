@@ -37,6 +37,10 @@
 
 ## position 属性有哪些?
 
-1. 
+1. static
+2. relative
+3. absolute
+4. fixed
+5. sticky
 
 
