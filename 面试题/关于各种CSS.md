@@ -37,10 +37,12 @@
 
 ## position 属性有哪些?
 
-1. static
-2. relative
-3. absolute
-4. fixed
-5. sticky
+1. static -> 默认
+2. relative -> 相对定位 不脱离文档流 
+3. absolute -> 绝对定位
+4. fixed -> 固定定位
+5. sticky -> 粘性定位
+
+
 
 
