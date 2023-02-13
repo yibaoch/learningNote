@@ -26,11 +26,31 @@
       font-size: larger;
       border: 1px solid red;
     }
+
+    #app {
+      grid-template-rows: 100px 100px;
+      grid-template-columns: 100px 100px;
+      display: grid;
+      grid-template-areas:
+        "left center"
+        "left center"
+      ;
+    }
+
+    #a {
+      grid-area: left;
+      background-color: red;
+    }
+
+    #b {
+      grid: center;
+      background-color: blueviolet;
+    }
   </style>
 </head>
 
 <body>
-  <div id="grid">
+  <!-- <div id="grid">
     <div>1</div>
     <div>2</div>
     <div>3</div>
@@ -40,6 +60,11 @@
     <div>7</div>
     <div>8</div>
     <div>9</div>
+  </div> -->
+
+  <div id="app">
+    <div id="a">1</div>
+    <div id="b">2</div>
   </div>
 </body>
 
