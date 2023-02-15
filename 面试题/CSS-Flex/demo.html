@@ -1,14 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+<style>
+  #app {
+    display: flex;
+    height: 400px;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+
+  #a {
+    background-color: rgb(46, 45, 45);
+    width: 1000px;
+    flex-shrink: 1;
+  }
+
+  #b {
+    background-color: blue;
+    width: 500px;
+    flex-shrink: 1;
+  }
+
+  .acc {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    transition: flex-grow 2s;
+
+  }
+
+  
+</style>
+
 <body>
   <div id="app">
-    <h1>hello</h1>
+
   </div>
 </body>
+
 </html>
+<script>
+  const app = document.querySelector('#app')
+  for (let i = 0; i < 2; i++){
+    const a = document.createElement('div')
+    a.className = 'acc'
+    a.onclick = () => {
+      a.style.flexGrow = 2
+    }
+    app.appendChild(a)
+  }
+</script>
+
+
+<!-- 
+  这个flex-shrink属性仅在flex元素宽度和大于容器是才会生效 值越大收缩越明显
+ -->
