@@ -17,10 +17,9 @@ const isAllNumPosive = (res) => {
 
 // 改变传入的数组 将数组的第n个放到数组开头
 const putFirst = (arr, n) => {
+  let res = arr
+  res.unshift(res.splice(n, 1)[0])
+  return res
 }
 let arr = [1,2,3,4]
-console.log(
-putFirst([1,2,3],1)
-
-);
-
+putFirst(arr, 1)
