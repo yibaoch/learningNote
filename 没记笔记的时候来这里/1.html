@@ -14,12 +14,25 @@
 
 </body>
 <script>
-  const a = new Compute({
-    x: 3,
-    y: 2
-  })
 
-  console.log(a.plus());
+  function People () {
+    this.a = 1,
+    this.b = '1'
+  }
+
+  function Student () {
+    this.sname = 'li',
+    this.age = 19
+  }
+
+  Student.prototype = People
+
+  const s = new Student()
+
+  console.log(s)
+
+
+
 </script>
 
 </html>
