@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  body {
+    background-color: gray;
+  }
+
+  #app {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto;
+  }
+
+  #black {
+    height: 50%;
+    background-color: #000;
+    position: relative;
+  }
+
+  #white {
+    height: 50%;
+    background-color: #fff;
+    position: relative;
+  }
+
+  #black-s {
+    height: 100px;
+    width: 100px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 50px;
+  }
+
+  #white-s {
+    height: 100px;
+    width: 100px;
+    background-color: #000;
+    border-radius: 50%;
+    position: absolute;
+    left: 100px;
+    top: -50px;
+  }
+
+  #white-p {
+    position: absolute;
+    background-color: #fff;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+  }
+
+  #black-p {
+    position: absolute;
+    background-color: #000;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin:  auto;
+    z-index: 1;
+  }
+</style>
+
+<body>
+  <div id="app">
+    <div id="black">
+      <div id="black-s">
+        <div id="black-p"></div>
+      </div>
+    </div>
+    <div id="white">
+      <div id="white-s">
+        <div id="white-p"></div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
