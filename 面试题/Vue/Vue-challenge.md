@@ -42,4 +42,13 @@ p {
 }
 ```
 
+## h()
+
+```JavaScript
+h(
+  'ul',
+  list.map()
+)
+```
+
 
