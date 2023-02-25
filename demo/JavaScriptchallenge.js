@@ -64,3 +64,21 @@ const removeRepeats = str => {
   arr.forEach(char => res[res.length] !== char && res.push(char))
   return res.join('')
 }
+
+const whichIsLarger = (fn1, fn2) => fn1() < fn2() ? 'g' : fn1() > fn2() ? 'f' : 'neither'
+
+const tuckIn = (arr1, arr2) => {
+  let res = []
+  const bin = [...arr1, ...arr2]
+  bin.forEach(a => {
+    if (Array.isArray(a)) res.push(...a)
+    else res.push(a)
+  })
+  return res
+}
+
+console.log(
+  tuckIn(
+    [15, 150], [45, 75, 35],
+
+  ))
