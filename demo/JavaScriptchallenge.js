@@ -67,6 +67,7 @@ const removeRepeats = str => {
 
 const whichIsLarger = (fn1, fn2) => fn1() < fn2() ? 'g' : fn1() > fn2() ? 'f' : 'neither'
 
+// Create a function that takes two arrays and insert the second array in the middle of the first array.
 const tuckIn = (arr1, arr2) => {
   let res = []
   const bin = [...arr1, ...arr2]
@@ -79,6 +80,7 @@ const tuckIn = (arr1, arr2) => {
 
 const potatoes = s => s.match(/potato/g).length;
 
+// Create a function that calculates the number of different squares in an n * n square grid. Check the Resources tab.
 const numberSquares = num => {
   let res = 0
   for (let i = num; i > 0; i--)
@@ -89,6 +91,9 @@ const numberSquares = num => {
 const countTrue = (arr) => {
   return arr.filter(Boolean).length
 }
+
+// Create a function that takes an array of numbers and return "Boom!" if the digit 7 appears in the array. Otherwise, return "there is no 7 in the array".
+const sevenBoom = arr => arr.join('').includes('7') ? "Boom!" : "there is no 7 in the array"
 
 
 
