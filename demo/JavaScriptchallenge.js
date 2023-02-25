@@ -70,15 +70,17 @@ const whichIsLarger = (fn1, fn2) => fn1() < fn2() ? 'g' : fn1() > fn2() ? 'f' : 
 const tuckIn = (arr1, arr2) => {
   let res = []
   const bin = [...arr1, ...arr2]
-  bin.forEach(a => {
-    if (Array.isArray(a)) res.push(...a)
-    else res.push(a)
-  })
-  return res
+  // bin.forEach(a => {
+  //   if (Array.isArray(a)) res.push(...a)
+  //   else res.push(a)
+  // })
+  return bin
 }
 
-console.log(
-  tuckIn(
-    [15, 150], [45, 75, 35],
+const potatoes = str => {
+  const pattern = /\bpotato\b/g;
+}
 
-  ))
+
+
+
