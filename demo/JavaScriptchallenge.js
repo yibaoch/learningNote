@@ -86,6 +86,10 @@ const numberSquares = num => {
   return res
 }
 
+const countTrue = (arr) => {
+  return arr.filter(Boolean).length
+}
+
 
 
 
