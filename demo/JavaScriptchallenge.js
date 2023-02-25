@@ -42,4 +42,21 @@ const minMax = (arr) => {
   return [min, max]
 }
 
-console.log(minMax([111, 0, 2, 3, 3, 4, 1, 2, 4, 6, 1, 11]));
+const detectWord = (str) => {
+  const res = []
+    ;[...str].forEach(char => {
+      char.charCodeAt() >= 97 && res.push(char)
+    })
+  return res.join('')
+}
+
+const timeForMilkAndCookies = (date) => date.getMonth() === 11 && date.getDate() === 24
+
+const largestSwap = num => {
+  let c = num + ''
+  return c[0] >= c[1]
+}
+
+const sortDrinkByPrice = () => {
+  
+}
