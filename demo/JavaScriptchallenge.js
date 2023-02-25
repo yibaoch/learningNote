@@ -7,7 +7,7 @@ const canNest = (arr1, arr2) => {
 }
 
 const binary = (decimal) => {
-  if (decimal === 0) return 0
+  if (decimal === 0) return '0'
   const arr = []
   while (decimal !== 0) {
     let yushu = decimal % 2
@@ -57,6 +57,4 @@ const largestSwap = num => {
   return c[0] >= c[1]
 }
 
-const sortDrinkByPrice = () => {
-  
-}
+const sortDrinkByPrice = obj => obj.sort((a, v) => a.price - v.price)
