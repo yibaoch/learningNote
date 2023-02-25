@@ -77,9 +77,15 @@ const tuckIn = (arr1, arr2) => {
   return bin
 }
 
-const potatoes = str => {
-  const pattern = /\bpotato\b/g;
+const potatoes = s => s.match(/potato/g).length;
+
+const numberSquares = num => {
+  let res = 0
+  for (let i = num; i > 0; i--)
+    res += (i ** 2)
+  return res
 }
+
 
 
 
