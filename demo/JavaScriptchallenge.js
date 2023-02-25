@@ -57,3 +57,10 @@ const largestSwap = num => {
 }
 
 const sortDrinkByPrice = obj => obj.sort((a, v) => a.price - v.price)
+
+const removeRepeats = str => {
+  const arr = [...str]
+  const res = []
+  arr.forEach(char => res[res.length] !== char && res.push(char))
+  return res.join('')
+}
