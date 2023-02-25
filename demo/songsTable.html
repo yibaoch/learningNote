@@ -1,90 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <style>
-    #app {
-      display: grid;
-      grid-template-columns: repeat(5, 130px);
-      grid-template-rows: repeat(4, 150px);
-      gap: 10px 10px;
-    }
-
-    .song {
-      background-color: #fff;
-    }
-
-    .song > p {
-      text-align: center;
-    }
-  </style>
 </head>
-
 <body>
-  <div id="app">
-    <!-- <h1 >个人向专辑榜单</h1> -->
-    <div class="song">
-      <p>最喜欢的</p>
-    </div>
-    <div class="song">
-      <p>启蒙的</p>
-    </div>
-    <div class="song">
-      <p>水准最高的</p>
-    </div>
-    <div class="song">
-      <p>最动听的</p>
-    </div>
-    <div class="song">
-      <p>听最多次的</p>
-    </div>
-    <div class="song">
-      <p>最前卫的</p>
-    </div>
-    <div class="song">
-      <p>最华丽的</p>
-    </div>
-    <div class="song">
-      <p>最心潮澎湃的</p>
-    </div>
-    <div class="song">
-      <p>最被低估的</p>
-    </div>
-    <div class="song">
-      <p>到现在还听不懂的</p>
-    </div>
-    <div class="song">
-      <p>你喜欢但是大家不喜欢的</p>
-    </div>
-    <div class="song">
-      <p>大家喜欢但是你不太喜欢的</p>
-    </div>
-    <div class="song">
-      <p>歌词最棒的</p>
-    </div>
-    <div class="song">
-      <p>为什么这首没有火</p>
-    </div>
-    <div class="song">
-      <p>最近常听的</p>
-    </div>
-    <div class="song">
-      <p>最有气质的</p>
-    </div>
-    <div class="song">
-      <p>最深沉的</p>
-    </div>
-    <div class="song">
-      <p>最想安利的</p>
-    </div>
-    <div class="song">
-      <p>来个新专辑吧</p>
-    </div>
-  </div>
-</body>
+  <style>
+    .accordion {
+    /* Border */
+    border: 1px solid #d1d5db;
+    border-bottom-color: transparent;
+    border-radius: 4px;
+}
 
+.accordion__item {
+    border-bottom: 1px solid #d1d5db;
+}
+
+.accordion__header {
+    /* Center the content horizontally */
+    align-items: center;
+    display: flex;
+
+    cursor: pointer;
+    padding: 16px;
+}
+
+.accordion__toggle {
+    margin-right: 12px;
+}
+
+.accordion__title {
+    /* Take remaining width */
+    flex: 1;
+}
+
+.accordion__content {
+    border-top: 1px solid #d1d5db;
+    padding: 16px;
+}
+
+.accordion__item--collapsed .accordion__content {
+    display: none;
+}
+.accordion__item--expanded .accordion__content {
+    display: block;
+}
+  </style>
+  <!-- Container -->
+<div class="accordion">
+  <!-- Collapsed item -->
+  <div class="accordion__item accordion__item--collapsed">
+      <!-- Heading -->
+      <div class="accordion__header">
+          <!-- The toggle icon -->
+          <div class="accordion__toggle">...</div>
+
+          <!-- The title -->
+          <div class="accordion__title">...</div>
+      </div>
+
+      <!-- The content -->
+      <div class="accordion__content">...</div>
+  </div>
+
+  <!-- Expanded item -->
+  <div class="accordion__item accordion__item--expanded">...</div>
+
+  <!-- Repeat other item -->
+  ...
+</div>
+</body>
 </html>
