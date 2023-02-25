@@ -15,7 +15,6 @@ const binary = (decimal) => {
     arr.push(yushu)
   }
   return arr.reverse().join('')
-
 }
 
 const matchHouses = (step) => {
