@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Switching options</title>
+
+  <style>
+    .switch__input {
+      display: none;
+    }
+
+    .switch {
+      cursor: pointer;
+      display: flex;
+      /* Rounded border */
+      border-radius: 9999px;
+
+      /* Size */
+      height: 2rem;
+      width: 4rem;
+
+      position: relative;
+    }
+
+    .switch__circle {
+      /* Rounded border */
+      border-radius: 9999px;
+
+      /* Size */
+      height: 2rem;
+      width: 2rem;
+
+      /* Absolute position */
+      position: absolute;
+      left: 0;
+      top: 0;
+
+      background-color: #fff;
+    }
+
+    /* OFF state */
+    .switch--off {
+      background-color: #d1d5db;
+    }
+
+    .switch--off .switch__circle {
+      border: 1px solid #d1d5db;
+      transform: translateX(0%);
+    }
+
+    /* ON state */
+    .switch--on {
+      background-color: #f00d0d;
+    }
+
+    .switch--on .switch__circle {
+      border: 1px solid #357edd;
+      transform: translateX(100%);
+    }
+
+    .switch__circle {
+      transition: transform .3s;
+    }
+
+    #div {
+      display: flex;
+      justify-content: center;
+      border: 3px solid #000;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="div">
+    <label class="switch" id="switchEle">
+      <input type="checkbox" class="switch__input" id="checkboxEle" />
+      <div class="switch__circle"></div>
+    </label>
+  </div>
+</body>
+
+<script>
+  checkboxEle.addEventListener('change', (e) => {
+    const isChecked = e.target.checked;
+    console.log(isChecked);
+    if (isChecked) {
+      switchEle.classList.remove('switch--off');
+      switchEle.classList.add('switch--on');
+    } else {
+      switchEle.classList.remove('switch--on');
+      switchEle.classList.add('switch--off');
+    }
+  });
+</script>
+
+
+</html>
