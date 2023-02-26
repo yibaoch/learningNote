@@ -8,6 +8,12 @@
   <title>Switching options</title>
 
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     .switch__input {
       display: none;
     }
@@ -17,7 +23,7 @@
       display: flex;
       /* Rounded border */
       border-radius: 9999px;
-
+      background-color: #d1d5db;
       /* Size */
       height: 2rem;
       width: 4rem;
@@ -53,7 +59,7 @@
 
     /* ON state */
     .switch--on {
-      background-color: #f00d0d;
+      background-color: #357edd;
     }
 
     .switch--on .switch__circle {
@@ -66,9 +72,9 @@
     }
 
     #div {
-      display: flex;
-      justify-content: center;
       border: 3px solid #000;
+      width: fit-content;
+      margin: 0 auto;
     }
   </style>
 </head>
@@ -83,9 +89,8 @@
 </body>
 
 <script>
-  checkboxEle.addEventListener('change', (e) => {
+  checkboxEle.addEventListener('change', e => {
     const isChecked = e.target.checked;
-    console.log(isChecked);
     if (isChecked) {
       switchEle.classList.remove('switch--off');
       switchEle.classList.add('switch--on');
