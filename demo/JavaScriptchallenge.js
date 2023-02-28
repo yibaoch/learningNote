@@ -116,3 +116,12 @@ const shuffle = arr => {
   return arr
 }
 
+const bugFixFinal = string => string.replaceAll('bug', 'flower')
+
+const firstJSON = (key, value) => {
+  let text = `{"${key}" : "${value}"}`;
+  return JSON.parse(text);
+}
+
+const a = firstJSON('difficulty', '42')
+console.log(a);
