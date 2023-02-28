@@ -123,5 +123,14 @@ const firstJSON = (key, value) => {
   return JSON.parse(text);
 }
 
-const a = firstJSON('difficulty', '42')
-console.log(a);
+const hangman = str => {
+  let _ = []
+  for (let i = 0; i < str.length; i++) {
+    i % 2 === 0 ? _.push('_') : _.push(str[i])
+  }
+  return _.join('')
+}
+
+const palindrome = (params) => {
+  
+}
