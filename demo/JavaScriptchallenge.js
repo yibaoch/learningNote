@@ -130,7 +130,3 @@ const hangman = str => {
   }
   return _.join('')
 }
-
-const palindrome = (params) => {
-  
-}
