@@ -130,3 +130,16 @@ const hangman = str => {
   }
   return _.join('')
 }
+
+const littleChild = (child1, child2) => {
+  if (child1 >= 0 && child1 <= 14) {
+    return true;
+  } else if (child2 >= 0 && child2 <= 14) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+
+
