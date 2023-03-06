@@ -45,7 +45,7 @@ export default defineComponent({
 
 >父组件
 
-```typescript
+```JavaScript
 <template>
   <Child>
     <p>这是插槽内容</p>
@@ -55,7 +55,7 @@ export default defineComponent({
 
 >子组件
 
-```typescript
+```JavaScript
 <template>
   <slot />
 </template>
@@ -66,7 +66,7 @@ export default defineComponent({
 >父组件
 >> v-slot:name 可以缩写为 #name
 
-```typescript
+```JavaScript
 <template>
   <Child>
     <template v-slot:title>
@@ -78,7 +78,7 @@ export default defineComponent({
 
 >子组件
 
-```typescript
+```JavaScript
 <template>
   <slot name="title"/>
 </template>
@@ -90,7 +90,7 @@ export default defineComponent({
 
 ### 使用 v-bind 动态修改 style
 
-```typescript
+```JavaScript
 const cssr = ref<string>('red')
 
 <style scoped>
@@ -128,13 +128,13 @@ const cssr = ref<string>('red')
 <h1 class="$style.class">im yibaochen</h1>
 ```
 
-> 发现一个事情 如果用 module 这种, 写的样式都需要自己首档绑定
+> 发现一个事情 如果用 module 这种, 写的样式都需要自己手动绑定
 >
 > 而且好像不能和 scoped 方式混用
 
 + useCssModule
 
-```typescript
+```JavaScript
 <template>
   <div v-html="content"></div>
 </template>
@@ -156,6 +156,6 @@ const content = `
 
 ```
 
-```typescript
+```JavaScript
 const style = useCssModule('classes')
 ```
