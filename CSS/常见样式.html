@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #使得文本不可换行 {
+      width: 400px;
+    }
+
+    #使得文本不可换行>p {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    #三角形 {
+      width: 0;
+      height: 0;
+      border: 30px solid;
+      border-color: transparent transparent rgb(166, 51, 51) rgb(166, 51, 51);
+    }
+
+    #triangle {
+      width: 0px;
+      height: 0px;
+      border-top: 100px solid #e66161;
+      border-right: 100px solid #f3bb5b;
+      border-left: 100px solid #94e24f;
+      border-bottom: 100px solid #85bfda;
+      border-radius: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 使得文本不可换行 -->
+    <div id="使得文本不可换行">
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis cum ea dolorum repellat, non suscipit labore
+        possimus omnis totam maiores temporibus optio voluptatum vel itaque accusamus accusantium consequatur eius
+        fugiat.</p>
+    </div>
+
+
+    <!-- 三角形 -->
+    <div id="三角形"></div>
+    <div id="triangle"></div>
+  </div>
+</body>
+
+</html>
