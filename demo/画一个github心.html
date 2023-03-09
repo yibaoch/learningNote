@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    #app {
+      display: flex;
+      flex-wrap: wrap;
+      width: 220px;
+      height: 220px;
+      flex-direction: column;
+    }
+
+    .block {
+      border: 1px solid #fff;
+      width: 30px;
+      height: 30px;
+      background-color: whitesmoke;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app"></div>
+</body>
+<script>
+  const app = document.querySelector('#app')
+  const high = [0, 4, 5, 6, 12, 13, 20, 21, 34, 40, 41, 42, 46, 47, 48]
+  const low = [8, 9, 10, 15, 16, 17, 18, 23, 24, 25, 26, 29, 30, 31, 32, 36, 37, 38]
+  let interval = null
+  let m = 0
+
+  for (let i = 0; i < 49; i++) {
+    let div = document.createElement('div')
+    div.className = 'block'
+    app.append(div)
+  }
+
+  const blocks = [...document.querySelectorAll('.block')]
+
+  interval = setInterval(() => {
+    if (!high.includes(m)) blocks[m].style.backgroundColor = 'green'
+    if(low.includes(m)) blocks[m].style.backgroundColor = 'rgb(144, 218, 113)'
+    m++
+    if (m >= 49) {
+      clearInterval(interval)
+    }
+  }, 100);
+
+
+
+
+
+
+</script>
+
+</html>
