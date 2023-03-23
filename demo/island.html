@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .island {
+      position: relative;
+      width: 400px;
+      height: 200px;
+      background-color: #fff;
+      border-radius: 50% / 10%;
+      overflow: hidden;
+    }
+
+    .ocean {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      background-color: #00bfff;
+    }
+
+    .waves {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      transform: translateX(-100%);
+      animation: waves 2s linear infinite;
+    }
+
+    .wave {
+      position: absolute;
+      bottom: 0;
+      width: 200px;
+      height: 60px;
+      background-color: #fff;
+      border-radius: 50% / 50%;
+      transform: rotate(45deg);
+      animation: wave 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes wave {
+      from {
+        height: 60px;
+        transform: rotate(45deg) translateX(0);
+      }
+
+      to {
+        height: 100px;
+        transform: rotate(45deg) translateX(100px);
+      }
+    }
+
+    .clouds {
+      position: absolute;
+      top: 20%;
+      right: 0;
+      width: 200px;
+      height: 80px;
+      transform: translateX(100%);
+      animation: clouds 5s linear infinite;
+    }
+
+    .cloud {
+      position: absolute;
+      top: 20px;
+      width: 50px;
+      height: 50px;
+      background-color: #fff;
+      border-radius: 50%;
+      animation: cloud 5s ease-in-out infinite alternate;
+    }
+
+    @keyframes cloud {
+      from {
+        transform: translateY(0) translateX(0);
+      }
+
+      to {
+        transform: translateY(20px) translateX(20px);
+      }
+    }
+
+    @keyframes clouds {
+      from {
+        transform: translateX(100%);
+      }
+
+      to {
+        transform: translateX(-100%);
+      }
+    }
+
+    @keyframes waves {
+      from {
+        transform: translateX(-100%);
+      }
+
+      to {
+        transform: translateX(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="island">
+    <div class="ocean"></div>
+    <div class="waves">
+      <div class="wave"></div>
+      <div class="wave"></div>
+      <div class="wave"></div>
+    </div>
+    <div class="clouds">
+      <div class="cloud"></div>
+      <div class="cloud"></div>
+      <div class="cloud"></div>
+    </div>
+  </div>
+
+</body>
+
+</html>
