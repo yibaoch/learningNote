@@ -17,16 +17,15 @@
       margin: 0 auto;
     }
 
-    span {
-      line-height: 100px;
-      background: linear-gradient(to right, #f00, #0f0, #00f) no-repeat right bottom;
-      background-size: 0 3px;
-      transition: background-size 3s;
 
+
+    .underline-vertical {
+      background: linear-gradient(to right, #f00, #0f0, #00f) no-repeat left bottom;
+      background-size: 0 3px;
+      transition: background-size 2s;
     }
 
-    span:hover {
-      background-position-x: left;
+    .underline-vertical:hover {
       background-size: 100% 3px;
     }
   </style>
@@ -36,7 +35,7 @@
   <div id="app">
     <h1>字体底部灵动下划线</h1>
     <h2>
-      <span>
+      <span class="underline-vertical">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt provident autem aut voluptatibus commodi
         veniam consequuntur quia facere quae debitis! Enim hic quaerat nihil est eos exercitationem aliquid tempore
         temporibus.
