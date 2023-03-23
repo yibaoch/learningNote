@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    h1 {
+      font-size: 50px;
+      text-align: center;
+    }
+
+    #app {
+      width: 70vw;
+      margin: 0 auto;
+    }
+
+    span {
+      line-height: 100px;
+      background: linear-gradient(to right, #f00, #0f0, #00f) no-repeat right bottom;
+      background-size: 0 3px;
+      transition: background-size 3s;
+
+    }
+
+    span:hover {
+      background-position-x: left;
+      background-size: 100% 3px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <h1>字体底部灵动下划线</h1>
+    <h2>
+      <span>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt provident autem aut voluptatibus commodi
+        veniam consequuntur quia facere quae debitis! Enim hic quaerat nihil est eos exercitationem aliquid tempore
+        temporibus.
+      </span>
+    </h2>
+  </div>
+</body>
+
+</html>
