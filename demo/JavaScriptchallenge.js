@@ -42,10 +42,10 @@ const minMax = (arr) => {
 }
 
 const detectWord = (str) => {
-  const res = []
-    ;[...str].forEach(char => {
-      char.charCodeAt() >= 97 && res.push(char)
-    })
+  const res = [];
+  [...str].forEach(char => {
+    char.charCodeAt() >= 97 && res.push(char)
+  })
   return res.join('')
 }
 
@@ -88,9 +88,8 @@ const numberSquares = num => {
   return res
 }
 
-const countTrue = (arr) => {
-  return arr.filter(Boolean).length
-}
+const countTrue = arr => arr.filter(Boolean).length
+
 
 // Create a function that takes an array of numbers and return "Boom!" if the digit 7 appears in the array. Otherwise, return "there is no 7 in the array".
 const sevenBoom = arr => arr.join('').includes('7') ? "Boom!" : "there is no 7 in the array"

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+
+</head>
+
+<body>
+  <div id="app">
+
+  </div>
+</body>
+
+
+<script type="text/jsx">
+
+  const app = document.getElementById("app")
+
+  const Header = () => {
+    return (
+      <div>
+        <h1>im header</h1>
+      </div>
+    )
+  }
+
+  const Footer = () => {
+    return (
+      <div>
+        <h1>im footer</h1>
+      </div>
+    )
+  }
+
+  const Content = ({content, onclick}) => {
+    return (
+      <div>
+        <button onClick={onclick}>click</button>
+        <h1>{content || 'hello ve'}</h1>
+      </div>
+    )
+  }
+
+
+  const App = () => {
+
+    const content = 'hello im a content from app'
+
+    const [state, setState] = React.useState(1)
+
+    const onclick = () => {
+      setState(state + 1)
+      console.log(state)
+
+    }
+
+    return (
+      <div>
+        <Header />
+        <Content content={content} onclick={onclick} />
+        <Footer />
+      </div>
+    )
+  }
+
+
+  ReactDOM.render(<App />, app)
+
+</script>
+
+</html>

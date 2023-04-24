@@ -13,10 +13,9 @@
     }
 
     #app {
-      width: 70vw;
+      width: 90vw;
       margin: 0 auto;
     }
-
 
 
     .underline-vertical {
@@ -28,20 +27,51 @@
     .underline-vertical:hover {
       background-size: 100% 3px;
     }
+
+    #mainTitle {
+      font-size: 200px;
+      width: fit-content;
+      transition: background-size 1s;
+    }
+
+    .makeItBig {
+      font-size: 100px;
+    }
   </style>
 </head>
 
 <body>
   <div id="app">
-    <h1>字体底部灵动下划线</h1>
+    <h1 id="mainTitle" class="underline-vertical">灵动下划线</h1>
     <h2>
-      <span class="underline-vertical">
+      <span class="underline-vertical makeItBig">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt provident autem aut voluptatibus commodi
         veniam consequuntur quia facere quae debitis! Enim hic quaerat nihil est eos exercitationem aliquid tempore
         temporibus.
       </span>
+
+
+      <button class="underline-vertical">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum odit adipisci nulla. Impedit ullam
+        laboriosam quaerat aut similique vel velit quidem quis, doloribus tenetur placeat sed voluptatibus voluptate
+        nisi itaque!
+      </button>
+      </p>
     </h2>
   </div>
 </body>
+<script>
+
+  const app = document.querySelector('#app')
+  const mainTitle = app.querySelector('#mainTitle')
+
+  let island = false
+
+  mainTitle.addEventListener('mouseover', () => {
+    setInterval(() => {
+      if(!island) 
+    }, 2000);
+  })
+</script>
 
 </html>

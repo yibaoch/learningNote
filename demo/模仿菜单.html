@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    #menu-container {
+      height: 40px;
+      background-color: #ffc0cb;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    .menu-item {
+      width: 35px;
+      height: 35px;
+      line-height: 35px;
+      text-align: center;
+      background-color: #ffc0cb;
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+      border-radius: 50%;
+    }
+
+    .menu-item-title {
+      border-radius: 50%;
+    }
+
+    .menu-item .menu-item-title:hover {
+      background-color: #f57e92;
+    }
+
+    .menu-item-content {
+      display: none;
+      background-color: pink;
+      width: 200px;
+      list-style: none;
+    }
+
+    .menu-item-content>ul {
+      list-style: none;
+    }
+
+    .menu-item-content>ul>li {
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .menu-item-content>ul>li:hover {
+      background-color: #f57e92;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <div id="menu-container">
+      <div class="menu-item">
+        <div class="menu-item-title">吃</div>
+        <div class="menu-item-content">
+          <ul>
+            <li>吃饭</li>
+            <li>睡觉</li>
+            <li>打豆豆</li>
+            <li>打游戏</li>
+            <li>打篮球</li>
+          </ul>
+        </div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-title">吃</div>
+        <div class="menu-item-content">
+          <ul>
+            <li>吃饭</li>
+            <li>睡觉</li>
+            <li>打豆豆</li>
+            <li>打游戏</li>
+            <li>打篮球</li>
+          </ul>
+        </div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-title">吃</div>
+        <div class="menu-item-content">
+          <ul>
+            <li>吃饭</li>
+            <li>睡觉</li>
+            <li>打豆豆</li>
+            <li>打游戏</li>
+            <li>打篮球</li>
+          </ul>
+        </div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-title">吃</div>
+        <div class="menu-item-content">
+          <ul>
+            <li>吃饭</li>
+            <li>睡觉</li>
+            <li>打豆豆</li>
+            <li>打游戏</li>
+            <li>打篮球</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+
+  const menuItem = document.querySelectorAll('.menu-item');
+  const menuItemTitle = document.querySelectorAll('.menu-item-title');
+  const menuItemContent = document.querySelectorAll('.menu-item-content');
+
+  let clickIndex = undefined;
+  let inner = ''
+
+
+
+  menuItemTitle.forEach((item, index) => {
+    item.addEventListener('click', () => {
+      menuItemContent[index].style.display = 'block';
+      clickIndex = index
+    })
+  })
+
+  window.onclick = (event) => {
+    let i = clickIndex
+    if (!event.target.matches('.menu-item-title') && clickIndex !== i)
+      menuItemContent.forEach(item => item.style.display = 'none')
+  }
+
+
+</script>
+
+</html>

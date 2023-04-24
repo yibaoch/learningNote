@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: content-box;
+    }
+
+    #header {
+      height: 100px;
+      text-align: center;
+      background-color: pink;
+      border: 9px solid rgb(227, 120, 137);
+    }
+
+    #header .header-p {
+      font-size: 30px;
+    }
+
+    #header button {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    #header .header-container-button {
+      display: flex;
+      justify-content: space-around;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <div id="header">
+      <div class="header-p">
+        <p>HEADER</p>
+      </div>
+      <div class="header-container-button">
+        <button>打</button>
+        <button>扰</button>
+        <button>集</button>
+      </div>
+    </div>
+    <div id="container">
+      im container
+    </div>
+    <div id="footer">
+      im footer
+    </div>
+  </div>
+</body>
+</html>

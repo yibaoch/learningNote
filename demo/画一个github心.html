@@ -28,6 +28,7 @@
       width: 30px;
       height: 30px;
       background-color: whitesmoke;
+      transition: background-color .4s e;
     }
   </style>
 </head>
@@ -54,9 +55,7 @@
     if (!high.includes(m)) blocks[m].style.backgroundColor = 'green'
     if(low.includes(m)) blocks[m].style.backgroundColor = 'rgb(144, 218, 113)'
     m++
-    if (m >= 49) {
-      clearInterval(interval)
-    }
+    if (m >= 49) clearInterval(interval)
   }, 200);
 
 </script>
