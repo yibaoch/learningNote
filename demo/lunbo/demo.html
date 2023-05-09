@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style type="text/css">
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    #container {
+      width: 590px;
+      height: 470px;
+      position: relative;
+      margin: 50px auto;
+      border: 1px solid;
+      overflow: hidden;
+    }
+
+    #imgs {
+      height: 470px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      list-style: none;
+    }
+
+    #imgs li {
+      width: 590px;
+      height: 470px;
+      float: left;
+    }
+
+    #pages {
+      width: 590px;
+      height: 30px;
+      background: #000;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+
+    #pages i {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 5px;
+      background: #fff;
+      margin: 10px;
+    }
+
+    #pages i.current {
+      background: #f00;
+    }
+
+    #prev,
+    #next {
+      width: 45px;
+      height: 100px;
+      background: #000;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      color: #fff;
+      font-size: 30px;
+      line-height: 100px;
+      text-align: center;
+    }
+
+    #next {
+      right: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <ul class="list">
+      <!-- 切换逻辑
+    我们当前的动画逻辑 是通过修改list元素的left值   平移实现的图片切换
+    在图片1的前边没有图片5的情况下 是不可能实现  1出场 5入场的动画的
+    在图片5的后边没有图片1的情况下 是不可能实现  5出场 1入场的动画的
+    所以我们会在结构当中   图片1的前边增加一张图片5    图片5的后边增加一张图片1  用于实现动画效果
+    后添加的图片我们称作 假5和假1    默认显示的5张图片 我们称作 真1-真5
+
+    当我们在真1 点击 prev按钮  要先向假5进行动画的切换  当动画完成之后  因为假5和真5就是一张图片 所以瞬间修改left值 进行位置的切换
+-->
+      <li><img src="img/5.jpg" alt=""></li>
+      <li><img src="img/1.jpg" alt=""></li>
+      <li><img src="img/2.jpg" alt=""></li>
+      <li><img src="img/3.jpg" alt=""></li>
+      <li><img src="img/4.jpg" alt=""></li>
+      <li><img src="img/5.jpg" alt=""></li>
+      <li><img src="img/1.jpg" alt=""></li>
+    </ul>
+    <a href="javascript:;" class="prev">&lt;</a>
+    <a href="javascript:;" class="next">&gt;</a>
+    <div class="pointsDiv">
+      <span class="active"></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+  <script type="text/javascript">
+
+    //  获取显示区域容器    移入停止自动轮播    移出后 重启自动轮播
+    var container = document.querySelector('.container');
+    //      获取图片容器    轮播图的本质 就是通过操作list容器的left值  实现图片切换
+    var list = document.querySelector('.list');
+    //      获取左右按钮    点击左右按钮  轮播图 实现前后一页的切换
+    var prev = document.querySelector('.prev');
+    var next = document.querySelector('.next');
+
+    var points = document.querySelectorAll('.pointsDiv span');
+    //    定义动画总时长
+    var time = 3000;
+    //    定义动画帧时长
+    var itemTime = 30;
+    //    定义图片宽度变量
+    var imgWidth = container.clientWidth;
+    //    定义显示图片张数   小圆点的个数 对应图片的张数 所以使用小圆点元素数组的长度
+    var showNum = points.length;
+    //  定义小圆点索引  默认高亮的是第一个小圆点 所以该变量默认值为0
+    var index = 0;
+    //  定义一个变量  记录当前动画是否在执行 以实现基本节流
+    var isMovIng = false;
+
+    //  给左右按钮绑定点击事件
+    prev.onclick = function () {
+      nextPage(false);
+    }
+    next.onclick = function () {
+      nextPage(true);
+    }
+    //  给小圆点绑定点击事件
+    for (var i = 0; i < points.length; i++) {
+      //小圆点绑定index属性
+      points[i].index = i;
+      points[i].onclick = function () {
+        nextPage(this.index);
+      }
+
+    }
+
+    //  自动轮播 定时器调用nextPage这个翻页函数 然后传true 向后翻
+    var autoTimer = setInterval(function () {
+      nextPage(true)
+      console.log(1);
+    }, 3000)
+    //  移入停止自动轮播    移出之后重启自动轮播
+    container.onmouseenter = function () {
+      clearInterval(autoTimer)
+    }
+    container.onmouseleave = function () {
+      autoTimer = setInterval(function () {
+        nextPage(true)
+      }, 3000)
+    }
+
+
+
+
+    //  封装动画函数
+    //  next:
+    //    布尔值：
+    //        1.false  向右移动  list的left值 增加 600
+    //        2.true   向左移动 list的left值 减少600
+    //    数值（索引）： 计算前后索引差值*图片宽度  即为移动距离
+    function nextPage(next) {
+      if (isMovIng) {
+        return
+      }
+
+      //  只要翻页函数被调用  动画就开始执行了  所以将isMovIng的状态进行更新
+      //  isMovIng这个变量 默认为false 因为页面默认静止    当任意一个行为触发了nextPage的调用时 我们会将该变量的状态修改true
+      //  且在未来3秒（time）的时间内 都会保持为true的状态  直到符合停止的逻辑  清除定时器 我们会将该变量修改为false
+      isMovIng = true;
+
+      //  定义记录帧数的变量
+      var num = 0;
+      //  参数类型判断
+      if (typeof next == 'boolean') {
+        // 去计算总偏移  ±600(单张图片宽度)
+        var offset = next ? - imgWidth : imgWidth;
+      } else {
+        //   next形参接收的值 是当前点击的索引
+        var offset = -(next - index) * imgWidth
+      }
+
+      //  计算单次偏移
+      var itemOffset = offset / (time / itemTime);
+      //  获取当前list的位置   因为轮播图都是基于当前位置增加偏移 去计算新位置的
+      var left = list.offsetLeft;
+      //  计算终点left = 当前位置 + 总偏移
+      var targetLeft = left + offset;
+      var timer = setInterval(function () {
+        //  循环定时器没执行一次  就说明走了一帧
+        num++;
+        left += itemOffset;
+        if (num === time / itemTime) {
+          clearInterval(timer)
+          //      只要是 当前帧数 = 总帧数  意味着这一次翻页 已经停止
+          isMovIng = false;
+          //   页面停止才有可能触及边界
+          if (left === 0) {
+            //  此时用户在真1 又点击了 prev按钮  切换到了假5  当动画完成之后 需要切换到真5  实际排列的倒数第二张
+            //  实际显示的图片的最后一张 永远都是倒数第二张 因为其后边一定会有一张假1占位
+            //  倒数第二张图片的left值 = 显示图片张数 * 图片宽度
+            left = -showNum * imgWidth;
+          } else if (left === -(showNum + 1) * imgWidth) {
+            //  说明用户在真5 点击了next按钮  切换到了假1  我们需要切换到真1   实际排列的正数第二张
+            //  实际显示的图片的第一张 永远都是正数第二张 因为其前边一定会有一张假5占位
+            left = -imgWidth;
+          }
+        }
+        list.style.left = left + 'px';
+
+      }, itemTime);
+      upDate(next);
+    }
+
+    //  小圆点更新函数封装
+    //  能够让小圆点切换的逻辑 一共三处   1.点击左右按钮  2.自动轮播   3.点击小圆点
+    // 只要图片产生切换  nextPage函数需要调用  小圆点更新就需要跟着调用
+    // 接收一个参数判断方向的布尔值
+    function upDate(next) {
+
+      if (typeof next == 'boolean') {
+        var targetIndex = next ? index + 1 : index - 1;
+      } else {
+        //   next就是当前点击的那个小圆点的索引
+        var targetIndex = next;
+      }
+
+      //  首尾相接：大于最大值等于最小值  小于最小值等于最大值
+      if (targetIndex < 0) {
+        //  我们应该切换到索引最大值
+        targetIndex = points.length - 1;
+      } else if (targetIndex > points.length - 1) {
+        targetIndex = 0;
+      }
+
+      //  index         对应取消高亮的那个小圆点
+      //  targetIndex  代表当次切换之后 要高亮的小圆点
+      points[index].className = '';
+      points[targetIndex].className = 'active';
+
+      //  更新索引  因为类名切换完成之后  index需要更新成当前正在高亮的那一个小圆点的索引
+      index = targetIndex;
+    }
+  </script>
