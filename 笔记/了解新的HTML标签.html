@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  .code-block {
+    border: 1px solid red;
+    margin-bottom: 30px;
+  }
+
+  meter {
+    width: 40vw;
+  }
+</style>
+
+<body>
+  <p>details</p>
+  <p>
+    details 和 summary 标签可用于在网页上创建可折叠的内容。这对于以紧凑格式显示大量信息很有用。
+  </p>
+  <div class="code-block">
+    <details>
+      <summary>Click me to reveal the details</summary>
+      <p>This is the hidden content that will be revealed when the summary is clicked.</p>
+    </details>
+  </div>
+
+
+  <div class="code-block">
+    <p>mark</p>
+    <p>
+      mark 标签可用于突出显示网页上的文本。这类似于在打印文档上使用荧光笔。当页面加载时，mark 标签内的文本将以黄色突出显示。
+    </p>
+    <p>This is some <mark>highlighted text</mark> on a web page.</p>
+  </div>
+
+  <div class="code-block">
+    <p>abbr</p>
+    <p>
+      abbr 标签用于定义网页上的缩写词或首字母缩写词。当用户将鼠标悬停在缩写词上时，将出现带有完整定义的工具提示
+    </p>
+    <p>The <abbr title="从我要吃我要吃一位参与我要吃我要吃因为">陈巍翊</abbr> is a global system of interconnected computer networks.</p>
+  </div>
+
+  <div class="code-block">
+    <p>meter</p>
+    <p>
+      meter 标签可用于在网页上创建度量值或值的可视化表示。它通常用于显示进度条、评分和其他类型的视觉反馈。
+    </p>
+    <meter value="75" min="0" max="100">75%</meter>
+  </div>
+
+  <div class="code-block">
+    <p>time</p>
+    <p>
+      time 标签可用于在网页上显示日期和时间。它还可以用于标记机器可读的日期和时间，这对搜索引擎优化很有用
+    </p>
+    <p>The <time datetime="2023-05-01">first of May</time> is a public holiday.</p>
+  </div>
+
+  <div class="code-block">
+    <p>picture</p>
+    <p>
+      picture标签用于为网页上的图像提供多个来源。它可用于根据用户的设备、屏幕尺寸或其他因素提供不同的图像。
+    </p>
+    <picture>
+      <source media="(min-width: 768px)" srcset="../demo/11.jpg">
+      <source media="(min-width: 480px)" srcset="../demo/33.jpg">
+      <img src="../demo/22.jpg" alt="A picture">
+    </picture>
+  </div>
+
+  <div class="code-block">
+    <p>source</p>
+    <p>source 标签用于指定媒体元素的替代媒体资源，例如 audio 或 video</p>
+  </div>
+
+  <div class="code-block">
+    <p>dialog</p>
+    <p>
+      dialog 标签可用于在网页上创建对话框。它通常用于确认操作、显示错误消息或显示附加信息。这是一个例子：
+    </p>
+    <dialog open>
+      <p>Greetings, one and all!</p>
+      <form method="dialog">
+        <button>OK</button>
+      </form>
+    </dialog>
+  </div>
+
+  <div class="code-block">
+    <p>nav</p>
+    <p>
+      nav 标签用于定义包含导航链接的网页部分。它通常用于创建菜单或导航栏。
+    </p>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="code-block">
+    <p>process</p>
+    <p>
+      progress 标签可用于在网页上创建进度条。它通常用于显示任务或进程的进度，例如上传文件或加载网页。
+    </p>
+    <progress value="10" max="100">10</progress>
+    <progress>loading....</progress>
+  </div>
+
+</body>
+
+</html>
